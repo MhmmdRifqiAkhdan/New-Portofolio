@@ -11913,4 +11913,55 @@ html {
     word-break: break-word; 
   }
 } */
+
+.card {
+  min-height: 400px; /* Set sesuai dengan kebutuhan */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card p {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip; /* Hilangkan ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: none; /* Tidak ada batasan jumlah baris */
+  -webkit-box-orient: vertical;
+}
+
+.card p {
+  white-space: normal;
+  overflow: hidden; /* Menghilangkan overflow */
+  text-overflow: clip; /* Hilangkan ellipsis */
+}
+
+.card p {
+  white-space: normal;
+  overflow: visible; /* Izinkan overflow */
+  text-overflow: clip; /* Tidak ada ellipsis */
+}
+
+.card {
+  height: 100%; /* Pastikan tinggi card menyesuaikan konten */
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-body {
+  flex: 1; /* Card body akan mengambil seluruh ruang yang tersedia */
+  display: flex;
+  flex-direction: column;
+}
+
+.card .p-5 {
+  flex-grow: 1; /* Konten teks akan mengambil seluruh ruang yang tersedia */
+}
+
  
