@@ -93,13 +93,13 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #e8f5e9; 
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -3707,7 +3707,7 @@ textarea.form-control-lg {
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
-  color: var(--bs-nav-link-color);
+  color: white;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -5394,58 +5394,132 @@ textarea.form-control-lg {
 }
 
 #collaborateButton {
-  background: white;
-  color: black; /* Warna teks pada tombol ketika warna latar belakang putih */
-  border: 1px solid #ccc;
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Menambahkan transition untuk efek hover pada semua properti */
-  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: #009688; /* Warna biru sesuai .btn-primary */
+  color: white; /* Warna teks putih */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
 }
 
+#collaborateButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 2px;
+  background-color: white;
+  transform: rotate(-45deg);
+  animation: slideDiagonal 2s infinite;
+}
+
+/* Animasi garis diagonal */
+@keyframes slideDiagonal {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Hover state */
 #collaborateButton:hover {
-  background: #FDF5E6;
-  color: black; /* Ganti warna teks menjadi putih pada saat hover */
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 10px;
+  background-color: white;
+  color: #007bff; /* Warna teks berubah menjadi biru saat hover */
+  border-color: #007bff;
 }
 
-#backButton {
-  background: white;
-  color: black; /* Warna teks pada tombol ketika warna latar belakang putih */
-  border: 1px solid #ccc;
+
+#backButton, #nextButton {
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Menambahkan transition untuk efek hover pada semua properti */
-  border-radius: 10px;
+  width: 50%;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #009688, #3b5998); /* Warna biru sesuai .btn-primary */
+  color: white; /* Warna teks putih */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
 }
 
-#backButton:hover {
-  background: #FDF5E6;
-  color: black; /* Ganti warna teks menjadi putih pada saat hover */
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 10px;
+#backButton::before, #nextButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 2px;
+  background-color: white;
+  transform: rotate(-45deg);
+  animation: slideDiagonal 2s infinite;
 }
 
-#nextButton {
-  background: white;
-  color: black; /* Warna teks pada tombol ketika warna latar belakang putih */
-  border: 1px solid #ccc;
+#submitButton {
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Menambahkan transition untuk efek hover pada semua properti */
-  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: #009688; /* Warna biru sesuai .btn-primary */
+  color: white; /* Warna teks putih */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+  opacity: 0.6; /* Mengurangi opacity agar sesuai dengan state disabled */
+  cursor: not-allowed; /* Indikasi button disabled */
 }
 
-#nextButton:hover {
-  background: #FDF5E6;
-  color: black; /* Ganti warna teks menjadi putih pada saat hover */
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 10px;
+#submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 2px;
+  background-color: white;
+  transform: rotate(-45deg);
+  animation: slideDiagonal 2s infinite;
+  opacity: 0.6; /* Sesuaikan opacity sesuai dengan state disabled */
 }
+
+
+/* Animasi garis diagonal */
+@keyframes slideDiagonal {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Hover state */
+#backButton:hover, #nextButton:hover {
+  background-color: white;
+  color: #007bff; /* Warna teks berubah menjadi biru saat hover */
+  border-color: #007bff;
+}
+
 
 .hidden {
   opacity: 0;
@@ -5469,7 +5543,7 @@ textarea.form-control-lg {
 }
 
 .scroll-down a {
-  font-size: 30px;
+  font-size: 26px;
   color: #fff;
 }
 
@@ -5984,7 +6058,7 @@ textarea.form-control-lg {
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 2s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
@@ -6048,7 +6122,7 @@ textarea.form-control-lg {
   background: none;
   border: 0;
   opacity: 0.5;
-  transition: opacity 0.15s ease;
+  transition: opacity 1s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-control-prev,
@@ -7070,6 +7144,10 @@ textarea.form-control-lg {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .stretched-link::after {
@@ -8495,7 +8573,7 @@ textarea.form-control-lg {
 
 .bg-white {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+  background: linear-gradient((45deg, #009688, #3b5998), var(--bs-bg-opacity)) !important;
 }
 
 .bg-body {
@@ -11734,7 +11812,7 @@ html {
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -11963,5 +12041,39 @@ html {
 .card .p-5 {
   flex-grow: 1; /* Konten teks akan mengambil seluruh ruang yang tersedia */
 }
+
+/* Animasi awal */
+.animate-from-left, .animate-from-right {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.animate-from-left {
+  transform: translateX(-100%); /* Awalnya di luar layar sebelah kiri */
+}
+
+.animate-from-right {
+  transform: translateX(20%); /* Awalnya di luar layar sebelah kanan */
+}
+
+/* Animasi ketika muncul */
+.animate-visible {
+  opacity: 1;
+  transform: translateX(0); /* Kembali ke posisi aslinya */
+}
+
+/* Awal posisi di luar layar */
+.animate-from-bottom {
+  opacity: 0;
+  transform: translateY(100px); /* Mulai dari bawah */
+  transition: all 0.8s ease;
+}
+
+/* Ketika elemen menjadi terlihat */
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0); /* Kembali ke posisi semula */
+}
+
 
  
